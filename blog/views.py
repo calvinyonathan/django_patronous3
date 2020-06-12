@@ -65,11 +65,6 @@ class PostListView(LoginRequiredMixin, ListView):
         return context
 
 
-
-
-
-
-
 @login_required
 def post_detail(request, year , month , day, post):
     post = get_object_or_404(Post, slug=post, 
@@ -248,3 +243,5 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         qs=super().get_queryset()
         return qs.filter(author = self.request.user)
+    
+    
